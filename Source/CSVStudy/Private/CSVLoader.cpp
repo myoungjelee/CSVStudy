@@ -42,7 +42,7 @@ TArray<FUserInfo> ACSVLoader::Parse(FString path)
 	if (FFileHelper::LoadFileToString(fileContent, *path))
 	{
 		//UE_LOG(LogTemp, Error, TEXT("%s"), *fileContent);
-		
+
 		//행(한줄) 나누기
 		TArray<FString> rows;
 		fileContent.ParseIntoArrayLines(rows);  //Enter 기준으로 한줄한줄 잘라서 넣어주겠다.
@@ -67,11 +67,11 @@ TArray<FUserInfo> ACSVLoader::Parse(FString path)
 
 			data.Add(info);
 
-// 			UE_LOG(LogTemp, Error, TEXT("-------------"));
-// 			for (int32 j = 0; j < values.Num(); j++)
-// 			{
-// 				UE_LOG(LogTemp, Warning, TEXT("%s"), *values[j]);
-// 			}
+			UE_LOG(LogTemp, Error, TEXT("-------------"));
+			for (int32 j = 0; j < values.Num(); j++)
+			{
+				UE_LOG(LogTemp, Warning, TEXT("%s"), *values[j]);
+			}
 		}
 	}
 	return data;
@@ -115,7 +115,7 @@ TArray<T> ACSVLoader::Parse(FString path, UScriptStruct* pScriptStruct)
 					FString* valuePtr = pro->ContainerPtrToValuePtr<FString>(&info);
 					*valuePtr = values[j];
 				}
-				else if(pro->IsA<FIntProperty>())
+				else if (pro->IsA<FIntProperty>())
 				{
 					int32* valuePtr = pro->ContainerPtrToValuePtr<int32>(&info);
 					*valuePtr = FCString::Atoi(*values[j]);
@@ -134,11 +134,11 @@ TArray<T> ACSVLoader::Parse(FString path, UScriptStruct* pScriptStruct)
 
 			data.Add(info);
 
-			// 			UE_LOG(LogTemp, Error, TEXT("-------------"));
-			// 			for (int32 j = 0; j < values.Num(); j++)
-			// 			{
-			// 				UE_LOG(LogTemp, Warning, TEXT("%s"), *values[j]);
-			// 			}
+			UE_LOG(LogTemp, Error, TEXT("-------------"));
+			for (int32 j = 0; j < values.Num(); j++)
+			{
+				UE_LOG(LogTemp, Warning, TEXT("%s"), *values[j]);
+			}
 		}
 	}
 

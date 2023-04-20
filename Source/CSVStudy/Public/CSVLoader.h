@@ -44,8 +44,8 @@ UCLASS()
 class CSVSTUDY_API ACSVLoader : public AActor
 {
 	GENERATED_BODY()
-	
-public:	
+
+public:
 	// Sets default values for this actor's properties
 	ACSVLoader();
 
@@ -53,7 +53,7 @@ protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
-public:	
+public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
@@ -64,7 +64,7 @@ public:
 	TArray<T> Parse(FString path, UScriptStruct* pScriptStruct); //UScriptStruct = 스트럭트(구조체) 안에 있는 변수들을 접근한다.
 
 	UPROPERTY(EditAnywhere)
-	TArray<FUserInfo> userData;
+		TArray<FUserInfo> userData;
 
 	UPROPERTY(EditAnywhere)
 		TArray<FProductInfo> productData;
